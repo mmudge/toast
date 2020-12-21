@@ -17,7 +17,7 @@ export default new Vuetify({
         primary: '#145C9E',
         secondary: '#87BBA2',
         accent: '#F6AE2D',
-        lightGrayText: '#6D6D6D',
+        lightGrayText: '#959da5',
         darkText: '#011627',
         darkGray: '#3C4042',
         mediumGray: '#808080',

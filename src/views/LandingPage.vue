@@ -1,8 +1,22 @@
 <template>
   <div>
-    <v-layout justify-even>
-      <v-flex grow>
-        <div>left content</div>
+    <v-layout>
+      <v-flex grow class="left-content">
+        <v-layout justify-center align-center style="min-height: 100%;">
+          <div>
+            <h1 class="landing-page-title">Coffee & toast.</h1>
+            <p class="mb-0 text-h6 font-weight-bold lightGrayText--text">
+              Organic fair trade coffee
+            </p>
+            <p>All natural whole foods</p>
+            <v-layout class="mt-10">
+              <v-btn color="darkText" dark tile large class="mr-5"
+                >Order now</v-btn
+              >
+              <v-btn color="darkText" outlined tile large>Learn more</v-btn>
+            </v-layout>
+          </div>
+        </v-layout>
       </v-flex>
       <v-flex grow class="right-content">
         <div id="landing-image"></div>
@@ -31,6 +45,11 @@ export default class Home extends AppComponent {}
 .right-content > div {
   min-height: calc(100vh - 64px);
   max-height: calc(100vh - 64px);
+}
+
+.landing-page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
 }
 
 #landing-image {

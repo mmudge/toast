@@ -26,9 +26,8 @@
         >fas fa-bars</v-icon
       >
       <v-spacer class="hidden-md-and-up"></v-spacer>
-      <v-toolbar-title>
-        <Logo />
-      </v-toolbar-title>
+
+      <Logo size="md" />
 
       <v-spacer></v-spacer>
 
@@ -36,6 +35,7 @@
         @click.stop="routeTo('menu')"
         color="darkText"
         text
+        tile
         class="hidden-sm-and-down mr-1"
         >Menu</v-btn
       >
@@ -43,6 +43,7 @@
         @click.stop="routeTo('about')"
         color="darkText"
         text
+        tile
         class="hidden-sm-and-down mr-1"
         >About us</v-btn
       >
@@ -50,12 +51,14 @@
         @click.stop="routeTo('landingPage')"
         color="darkText"
         text
+        tile
         class="hidden-sm-and-down mr-1"
         >Contact</v-btn
       >
       <v-btn
         @click.stop="routeTo('landingPage')"
         color="darkText"
+        tile
         class="hidden-sm-and-down"
         >Order now</v-btn
       >
