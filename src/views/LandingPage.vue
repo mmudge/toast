@@ -4,30 +4,40 @@
       <v-flex grow class="left-content">
         <v-layout justify-center align-center style="min-height: 100%;">
           <div>
-            <h1 class="landing-page-title">Coffee & toast.</h1>
+            <h1 :class="`${smAndDown ? 'mt-16' : ''} landing-page-title`">
+              Coffee & toast.
+            </h1>
             <p class="mb-0 text-h6 font-weight-bold lightGrayText--text">
               Organic fair trade coffee
             </p>
             <p>All natural whole foods</p>
-            <v-layout class="mt-10">
-              <v-btn color="darkText" dark tile large class="mr-5"
+            <v-layout class="mt-10" wrap>
+              <v-btn
+                color="darkText"
+                dark
+                tile
+                x-large
+                :class="`${mdAndUp ? 'mr-5' : 'mb-3'}`"
+                :block="smAndDown"
                 >Order now</v-btn
               >
-              <v-btn color="darkText" outlined tile large>Learn more</v-btn>
+              <v-btn color="darkText" outlined tile x-large :block="smAndDown"
+                >Learn more</v-btn
+              >
             </v-layout>
           </div>
         </v-layout>
       </v-flex>
-      <v-flex grow class="right-content">
+      <v-flex grow class="right-content hidden-sm-and-down">
         <div id="landing-image"></div>
       </v-flex>
     </v-layout>
 
     <v-container>
       <v-layout justify-center wrap>
-        <v-flex md3 sm12 grow><v-card>card</v-card></v-flex>
-        <v-flex md3 sm12 grow><v-card>card</v-card></v-flex>
-        <v-flex md3 sm12 grow><v-card>card</v-card></v-flex>
+        <v-flex sm12><v-card>card</v-card></v-flex>
+        <v-flex sm12><v-card>card</v-card></v-flex>
+        <v-flex sm12><v-card>card</v-card></v-flex>
       </v-layout>
     </v-container>
   </div>
