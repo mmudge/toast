@@ -27,7 +27,11 @@
       >
       <v-spacer class="hidden-md-and-up"></v-spacer>
 
-      <Logo size="md" />
+      <Logo
+        size="md"
+        @clicked="$router.push({ name: 'landingPage' })"
+        class="hover-cursor-pointer"
+      />
 
       <v-spacer></v-spacer>
 
@@ -48,7 +52,7 @@
         >About us</v-btn
       >
       <v-btn
-        @click.stop="routeTo('landingPage')"
+        @click.stop="routeTo('contact')"
         color="darkText"
         text
         tile
@@ -91,4 +95,8 @@ export default class Nav extends AppComponent {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.hover-cursor-pointer:hover {
+  cursor: pointer;
+}
+</style>

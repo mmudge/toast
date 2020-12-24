@@ -24,8 +24,8 @@ export default class Social extends Vue {
       icon: 'fab fa-facebook-f'
     },
     {
-      text: 'Snapchat',
-      icon: 'fab fa-snapchat-ghost'
+      text: 'Yelp',
+      icon: 'fab fa-yelp'
     }
   ]
 }

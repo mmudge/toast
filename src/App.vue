@@ -28,4 +28,8 @@ export default class App extends Vue {}
   font-family: 'Oxygen', sans-serif;
   color: #011627;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 </style>

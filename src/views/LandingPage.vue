@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="landingPage" ref="landingPage">
     <v-layout>
       <v-flex grow class="left-content">
         <v-layout justify-center align-center style="min-height: 100%;">
@@ -51,28 +51,51 @@
       </p>
 
       <p>
-        <i>"Eat better, not less. Drink coffee, dont stress." -m_mudge</i>
+        <i>"Eat better, not less. Drink coffee, dont stress."</i>
       </p>
     </div>
 
     <v-container class="mt-16">
-      <h3 class="dish-header pl-1 mt-16 pb-3">Favorites</h3>
-      <v-layout justify-center wrap>
-        <v-flex sm12 md4 pa-1
-          ><v-card tile>
-            <v-img height="500" src="@/assets/eggs.jpg"> </v-img> </v-card
-        ></v-flex>
-        <v-flex sm12 md4 pa-1
-          ><v-card tile>
-            <v-img height="500" src="@/assets/french-toast.jpg">
-            </v-img> </v-card
-        ></v-flex>
-        <v-flex sm12 md4 pa-1
-          ><v-card tile>
-            <v-img height="500" src="@/assets/grilled-cheese.jpg">
-            </v-img> </v-card
-        ></v-flex>
-      </v-layout>
+      <div class="my-16">
+        <h3
+          class="dish-header pl-2 pr-2 text-link"
+          @click="$router.push({ name: 'menu' })"
+        >
+          Favorites
+        </h3>
+        <v-layout justify-center wrap class="pt-3">
+          <v-flex sm12 md4 pa-2
+            ><v-card tile>
+              <v-img height="500" src="@/assets/eggs.jpg"> </v-img> </v-card
+          ></v-flex>
+          <v-flex sm12 md4 pa-2
+            ><v-card tile>
+              <v-img height="500" src="@/assets/french-toast.jpg">
+              </v-img> </v-card
+          ></v-flex>
+          <v-flex sm12 md4 pa-2
+            ><v-card tile>
+              <v-img height="500" src="@/assets/grilled-cheese.jpg">
+              </v-img> </v-card
+          ></v-flex>
+        </v-layout>
+      </div>
+      <div id="contact" class="mb-16 pl-2">
+        <h3
+          class="dish-header pr-2 text-link"
+          @click="$router.push({ name: 'contact' })"
+        >
+          Contact
+        </h3>
+        <p class="pt-3">3545 Central Ave, Riverside, CA 92506</p>
+        <p>951 323 1876</p>
+        <p>contact@toast-coffeeshop.com</p>
+      </div>
+
+      <div class="my-16 pl-2">
+        <v-btn color="darkText">Order now</v-btn>
+        <v-btn color="darkText">Explore the menu</v-btn>
+      </div>
     </v-container>
   </div>
 </template>
@@ -82,10 +105,18 @@ import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 
 @Component
-export default class Home extends AppComponent {}
+export default class LandingPage extends AppComponent {}
 </script>
 
 <style scoped>
+#landing-page {
+  /* scroll-behavior: smooth; */
+}
+
+.left-content {
+  /* scroll-behavior: smooth; */
+}
+
 .right-content > div {
   min-height: calc(100vh - 64px);
   max-height: calc(100vh - 64px);
@@ -99,24 +130,33 @@ export default class Home extends AppComponent {}
 #landing-image {
   background-image: url('../assets/coffee-unsplash.jpg');
   background-repeat: no-repeat;
-  /* border-radius: 50%; */
   background-size: contain;
   background-position: right;
-  /* background-position: -50px; */
 }
 
-#learn-more {
-  margin-top: 150px;
+#learn-more,
+#contact {
+  padding-top: 150px;
 }
 
-#learn-more p {
-  /* font-family: 'DM Serif Display', serif; */
+#learn-more p,
+#contact p {
   font-size: 22px;
   font-weight: lighter;
 }
 
 .dish-header {
-  /* font-family: 'DM Serif Display', serif; */
   font-size: 22px;
+}
+
+.text-link {
+  width: fit-content;
+  position: relative;
+}
+
+.text-link:hover {
+  border-bottom: 2px solid;
+  cursor: pointer;
+  transition: border-bottom 0.1s ease-in-out;
 }
 </style>
