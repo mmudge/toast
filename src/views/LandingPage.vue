@@ -93,8 +93,10 @@
       </div>
 
       <div class="my-16 pl-2">
-        <v-btn color="darkText">Order now</v-btn>
-        <v-btn color="darkText">Explore the menu</v-btn>
+        <v-layout justify-center align-center>
+          <v-btn color="darkText" class="mr-5" dark x-large>Order now</v-btn>
+          <v-btn color="darkText" dark x-large>Explore the menu</v-btn>
+        </v-layout>
       </div>
     </v-container>
   </div>
