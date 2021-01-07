@@ -1,92 +1,108 @@
 <template>
-  <span>
-    <v-navigation-drawer
-      app
-      v-model="drawer"
-      class="backgroundGray"
-      dark
-      disable-resize-watcher
-    >
-      <v-list>
-        <template v-for="(item, index) in navDropItems">
-          <v-list-item :key="index">
-            <v-list-item-content class="darkText--text">{{
-              item.title
-            }}</v-list-item-content>
-          </v-list-item>
-          <v-divider :key="`divider-${index}`"></v-divider>
-        </template>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar app color="backgroundGray" dark>
-      <v-icon
-        class="hidden-md-and-up"
-        color="darkText"
-        @click="drawer = !drawer"
-        >fas fa-bars</v-icon
+  <div>
+    <template v-if="smAndDown">
+      <v-btn
+        color="white2"
+        x-large
+        class="mobile-hamburger"
+        @click.stop="showDrawer = !showDrawer"
       >
-      <v-spacer class="hidden-md-and-up"></v-spacer>
+        <v-icon color="darkText" @click="drawer = !drawer">fas fa-bars</v-icon>
+      </v-btn>
 
-      <Logo
-        size="md"
-        @clicked="$router.push({ name: 'landingPage' })"
-        class="hover-cursor-pointer"
-      />
+      <v-navigation-drawer
+        v-model="drawer"
+        class="backgroundGray mobile-hamburger"
+        temporary
+        fixed
+        style="left: 0;"
+      >
+        <v-layout column class="text-center pt-16">
+          <Logo
+            size="lg"
+            @clicked="$router.push({ name: 'landingPage' })"
+            class="hover-cursor-pointer pb-10"
+          />
+          <template v-for="(item, index) in navDropItems">
+            <v-btn
+              x-large
+              :key="index"
+              @click.stop="routeTo(item.route)"
+              text
+              class="font-weight-bold mb-3"
+              >{{ item.title }}</v-btn
+            >
+          </template>
 
-      <v-spacer></v-spacer>
+          <Social class="pt-16" />
+        </v-layout>
+      </v-navigation-drawer>
+    </template>
+    <v-app-bar v-if="mdAndUp" app color="backgroundGray" dark height="74">
+      <v-layout align-center style="max-width: 1124px; margin: 0 auto;">
+        <Logo
+          size="md"
+          @clicked="$router.push({ name: 'landingPage' })"
+          class="hover-cursor-pointer"
+        />
 
-      <v-btn
-        @click.stop="routeTo('menu')"
-        color="darkText"
-        text
-        tile
-        class="hidden-sm-and-down mr-1"
-        >Menu</v-btn
-      >
-      <v-btn
-        @click.stop="routeTo('about')"
-        color="darkText"
-        text
-        tile
-        class="hidden-sm-and-down mr-1"
-        >About us</v-btn
-      >
-      <v-btn
-        @click.stop="routeTo('contact')"
-        color="darkText"
-        text
-        tile
-        class="hidden-sm-and-down mr-1"
-        >Contact</v-btn
-      >
-      <v-btn
-        @click.stop="routeTo('landingPage')"
-        color="darkText"
-        tile
-        class="hidden-sm-and-down"
-        >Order now</v-btn
-      >
+        <v-spacer></v-spacer>
+
+        <v-btn
+          @click.stop="routeTo('menu')"
+          color="darkText"
+          text
+          tile
+          class="hidden-sm-and-down mr-1"
+          >Menu</v-btn
+        >
+        <v-btn
+          @click.stop="routeTo('about')"
+          color="darkText"
+          text
+          tile
+          class="hidden-sm-and-down mr-1"
+          >About us</v-btn
+        >
+        <v-btn
+          @click.stop="routeTo('contact')"
+          color="darkText"
+          text
+          tile
+          class="hidden-sm-and-down mr-1"
+          >Contact</v-btn
+        >
+        <v-btn
+          @click.stop="routeTo('landingPage')"
+          color="darkText"
+          tile
+          class="hidden-sm-and-down"
+          >Order now</v-btn
+        >
+      </v-layout>
     </v-app-bar>
-  </span>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import Logo from '@/components/Logo.vue'
+import Social from '@/components/Social.vue'
 
 @Component({
   components: {
-    Logo
+    Logo,
+    Social
   }
 })
 export default class Nav extends AppComponent {
   drawer = false
-  navDropItems: { title: string }[] = [
-    { title: 'Menu' },
-    { title: 'About us' },
-    { title: 'Contact us' },
-    { title: 'Location' }
+  navDropItems: { title: string; route: string }[] = [
+    { title: 'Menu', route: 'menu' },
+    { title: 'About us', route: 'about' },
+    { title: 'Contact', route: 'contact' },
+    { title: 'Location', route: 'contact' }
   ]
 
   get appName() {
@@ -98,5 +114,12 @@ export default class Nav extends AppComponent {
 <style scoped>
 .hover-cursor-pointer:hover {
   cursor: pointer;
+}
+
+.mobile-hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
 }
 </style>

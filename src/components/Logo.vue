@@ -15,6 +15,8 @@ export default class Logo extends AppComponent {
   get style() {
     if (this.size === 'md') {
       return `font-size: 36px;`
+    } else if (this.size === 'lg') {
+      return `font-size: 46px;`
     } else {
       return `font-size: 36px;`
     }
