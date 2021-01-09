@@ -87,7 +87,7 @@
         >
           Contact
         </h3>
-        <p class="pt-3">3545 Central Ave, Riverside, CA 92506</p>
+        <p class="pt-3">3546 Central Ave, Riverside, CA 92506</p>
         <p>951 323 1876</p>
         <p>contact@toast-coffeeshop.com</p>
       </div>
