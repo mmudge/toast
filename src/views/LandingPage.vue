@@ -113,14 +113,6 @@ export default class LandingPage extends AppComponent {}
 </script>
 
 <style scoped>
-#landing-page {
-  /* scroll-behavior: smooth; */
-}
-
-.left-content {
-  /* scroll-behavior: smooth; */
-}
-
 .right-content > div {
   min-height: calc(100vh - 64px);
   max-height: calc(100vh - 64px);
