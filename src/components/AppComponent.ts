@@ -31,7 +31,7 @@ export default class AppComponent extends Vue {
   }
 
   get xl() {
-    return this.$vuetify.breakpoint.md
+    return this.$vuetify.breakpoint.xl
   }
 
   copyToClipboard(text: string) {

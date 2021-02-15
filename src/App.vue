@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app-main-content">
+  <v-app id="app-main">
     <Nav />
     <v-main>
       <router-view> </router-view>
@@ -23,7 +23,7 @@ export default class App extends Vue {}
 </script>
 
 <style>
-#app-main-content {
+#app-main {
   background-color: #fafafa;
   font-family: 'Oxygen', sans-serif;
   color: #011627;
@@ -31,5 +31,10 @@ export default class App extends Vue {}
 
 html {
   scroll-behavior: smooth;
+}
+
+.medium-container {
+  max-width: 1124px;
+  margin: 0 auto;
 }
 </style>

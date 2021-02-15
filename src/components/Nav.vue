@@ -38,47 +38,60 @@
         </v-layout>
       </v-navigation-drawer>
     </template>
-    <v-app-bar v-if="mdAndUp" app color="backgroundGray" dark height="74">
-      <v-layout align-center style="max-width: 1124px; margin: 0 auto;">
-        <Logo
-          size="md"
-          @clicked="$router.push({ name: 'landingPage' })"
-          class="hover-cursor-pointer"
-        />
+    <v-app-bar v-if="mdAndUp" app color="backgroundGray" height="92">
+      <v-layout align-center class="medium-container">
+        <v-flex shrink>
+          <Logo
+            size="md"
+            @clicked="$router.push({ name: 'landingPage' })"
+            class="hover-cursor-pointer"
+          />
+        </v-flex>
 
-        <v-spacer></v-spacer>
+        <v-flex grow>
+          <v-layout justify-center>
+            <v-btn
+              @click.stop="routeTo('menu')"
+              color="darkText"
+              text
+              tile
+              class="mr-1 font-weight-bold"
+              >Menu</v-btn
+            >
+            <v-btn
+              @click.stop="routeTo('about')"
+              color="darkText"
+              text
+              tile
+              class="mr-1 font-weight-bold"
+              >About</v-btn
+            >
+            <v-btn
+              @click.stop="routeTo('contact')"
+              color="darkText"
+              text
+              tile
+              class="font-weight-bold"
+              >Contact</v-btn
+            >
+          </v-layout>
+        </v-flex>
 
-        <v-btn
-          @click.stop="routeTo('menu')"
-          color="darkText"
-          text
-          tile
-          class="hidden-sm-and-down mr-1"
-          >Menu</v-btn
-        >
-        <v-btn
-          @click.stop="routeTo('about')"
-          color="darkText"
-          text
-          tile
-          class="hidden-sm-and-down mr-1"
-          >About us</v-btn
-        >
-        <v-btn
-          @click.stop="routeTo('contact')"
-          color="darkText"
-          text
-          tile
-          class="hidden-sm-and-down mr-1"
-          >Contact</v-btn
-        >
-        <v-btn
-          @click.stop="routeTo('landingPage')"
-          color="darkText"
-          tile
-          class="hidden-sm-and-down"
-          >Order now</v-btn
-        >
+        <v-flex shrink>
+          <v-layout justify-end align-center>
+            <v-btn icon class="mr-5" color="darkText" dark>
+              <v-icon>fas fa-shopping-cart</v-icon>
+            </v-btn>
+            <v-btn
+              @click.stop="routeTo('landingPage')"
+              color="darkText"
+              tile
+              class="font-weight-bold"
+              dark
+              >Order now</v-btn
+            >
+          </v-layout>
+        </v-flex>
       </v-layout>
     </v-app-bar>
   </div>

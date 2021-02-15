@@ -1,7 +1,20 @@
 <template>
-  <p id="logo" class="mb-0 darkText--text" :style="style" @click="onClicked">
-    toast.
-  </p>
+  <div style="text-align: center;">
+    <v-layout class="logo-main" align-baseline>
+      <v-icon color="darkText" class="mr-3">fas fa-coffee</v-icon>
+      <p
+        id="logo"
+        class="mb-0 darkText--text font-weight-bold"
+        :style="style"
+        @click="onClicked"
+      >
+        Toast
+      </p>
+    </v-layout>
+    <p class="mb-0 logo-secondary mediumGray--text font-weight-medium">
+      Fresh Brewed Coffee
+    </p>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,11 +27,11 @@ export default class Logo extends AppComponent {
 
   get style() {
     if (this.size === 'md') {
-      return `font-size: 36px;`
+      return `font-size: 28px;`
     } else if (this.size === 'lg') {
-      return `font-size: 46px;`
+      return `font-size: 40px;`
     } else {
-      return `font-size: 36px;`
+      return `font-size: 28px;`
     }
   }
 
@@ -30,6 +43,14 @@ export default class Logo extends AppComponent {
 
 <style>
 #logo {
-  font-family: 'DM Serif Display', serif;
+  /* font-family: 'DM Serif Display', serif; */
+}
+
+.logo-main {
+  line-height: 0.8;
+}
+
+.logo-secondary {
+  font-size: 10px;
 }
 </style>
