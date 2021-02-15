@@ -1,9 +1,8 @@
 <template>
-  <div style="text-align: center;">
-    <v-layout class="logo-main" align-baseline>
+  <div id="logo">
+    <v-layout class="logo-main" align-baseline justify-center>
       <v-icon color="darkText" class="mr-3">fas fa-coffee</v-icon>
       <p
-        id="logo"
         class="mb-0 darkText--text font-weight-bold"
         :style="style"
         @click="onClicked"
@@ -44,6 +43,8 @@ export default class Logo extends AppComponent {
 <style>
 #logo {
   /* font-family: 'DM Serif Display', serif; */
+  text-align: center;
+  margin: 0 auto;
 }
 
 .logo-main {

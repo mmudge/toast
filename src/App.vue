@@ -37,4 +37,8 @@ html {
   max-width: 1124px;
   margin: 0 auto;
 }
+
+.hover-cursor-pointer:hover {
+  cursor: pointer;
+}
 </style>

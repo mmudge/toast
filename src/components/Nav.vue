@@ -5,37 +5,38 @@
         color="white2"
         x-large
         class="mobile-hamburger"
-        @click.stop="showDrawer = !showDrawer"
+        @click.stop="showNavDrawer = !showNavDrawer"
       >
-        <v-icon color="darkText" @click="drawer = !drawer">fas fa-bars</v-icon>
+        <v-icon color="darkText">fas fa-bars</v-icon>
       </v-btn>
 
       <v-navigation-drawer
-        v-model="drawer"
-        class="backgroundGray mobile-hamburger"
+        v-model="showNavDrawer"
+        class="backgroundGray"
         temporary
         fixed
-        style="left: 0;"
       >
-        <v-layout column class="text-center pt-16">
+        <div class="py-16 text-center nav-drawer-inner">
           <Logo
-            size="lg"
+            size="md"
             @clicked="$router.push({ name: 'landingPage' })"
-            class="hover-cursor-pointer pb-10"
+            class="hover-cursor-pointer"
           />
-          <template v-for="(item, index) in navDropItems">
-            <v-btn
-              x-large
-              :key="index"
-              @click.stop="routeTo(item.route)"
-              text
-              class="font-weight-bold mb-3"
-              >{{ item.title }}</v-btn
-            >
-          </template>
 
-          <Social class="pt-16" />
-        </v-layout>
+          <div class="my-16" style="margin: auto 0;">
+            <div v-for="item in navDropItems" :key="item.title" class="mb-3">
+              <v-btn
+                x-large
+                @click.stop="routeTo(item.route)"
+                text
+                class="font-weight-bold"
+                >{{ item.title }}</v-btn
+              >
+            </div>
+          </div>
+
+          <Social />
+        </div>
       </v-navigation-drawer>
     </template>
     <v-app-bar v-if="mdAndUp" app color="backgroundGray" height="92">
@@ -79,7 +80,7 @@
 
         <v-flex shrink>
           <v-layout justify-end align-center>
-            <v-btn icon class="mr-5" color="darkText" dark>
+            <v-btn icon class="mr-5" color="darkText">
               <v-icon>fas fa-shopping-cart</v-icon>
             </v-btn>
             <v-btn
@@ -98,7 +99,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import Logo from '@/components/Logo.vue'
 import Social from '@/components/Social.vue'
@@ -110,29 +111,31 @@ import Social from '@/components/Social.vue'
   }
 })
 export default class Nav extends AppComponent {
-  drawer = false
   navDropItems: { title: string; route: string }[] = [
     { title: 'Menu', route: 'menu' },
     { title: 'About us', route: 'about' },
-    { title: 'Contact', route: 'contact' },
-    { title: 'Location', route: 'contact' }
+    { title: 'Contact', route: 'contact' }
   ]
 
-  get appName() {
-    return 'toast'
+  get showNavDrawer() {
+    return this.$store.getters.showNavDrawer
+  }
+
+  set showNavDrawer(value: boolean) {
+    this.$store.commit('setShowNavDrawer', value)
   }
 }
 </script>
 
-<style scoped>
-.hover-cursor-pointer:hover {
-  cursor: pointer;
-}
-
+<style lang="css" scoped>
 .mobile-hamburger {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 1;
+}
+
+.nav-drawer-inner {
+  min-height: 100%;
 }
 </style>
