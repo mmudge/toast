@@ -39,7 +39,7 @@
       </v-flex>
     </v-layout>
 
-    <div id="learn-more" :class="`${smAndDown ? 'px-5' : ''} text-center`">
+    <!-- <div id="learn-more" :class="`${smAndDown ? 'px-5' : ''} text-center`">
       <p>
         We believe in food and coffee of the highest standards, organically
         grown and ethically sourced.
@@ -100,7 +100,7 @@
           <v-btn color="darkText" tile dark x-large>Explore the menu</v-btn>
         </v-layout>
       </div>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
