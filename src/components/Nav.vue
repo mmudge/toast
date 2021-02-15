@@ -39,7 +39,13 @@
         </div>
       </v-navigation-drawer>
     </template>
-    <v-app-bar v-if="mdAndUp" app color="backgroundGray" height="92">
+    <v-app-bar
+      v-if="mdAndUp"
+      app
+      color="backgroundGray"
+      height="92"
+      elevate-on-scroll
+    >
       <v-layout align-center class="medium-container">
         <v-flex shrink>
           <Logo
@@ -50,13 +56,13 @@
         </v-flex>
 
         <v-flex grow>
-          <v-layout justify-center>
+          <v-layout justify-center class="nudge-right">
             <v-btn
               @click.stop="routeTo('menu')"
               color="darkText"
               text
               tile
-              class="mr-1 font-weight-bold"
+              class="font-weight-bold"
               >Menu</v-btn
             >
             <v-btn
@@ -64,7 +70,7 @@
               color="darkText"
               text
               tile
-              class="mr-1 font-weight-bold"
+              class="mx-1 font-weight-bold"
               >About</v-btn
             >
             <v-btn
@@ -80,17 +86,17 @@
 
         <v-flex shrink>
           <v-layout justify-end align-center>
-            <v-btn icon class="mr-5" color="darkText">
-              <v-icon>fas fa-shopping-cart</v-icon>
+            <v-btn icon class="mr-3" color="darkText">
+              <v-icon small>fas fa-shopping-cart</v-icon>
             </v-btn>
             <v-btn
-              @click.stop="routeTo('landingPage')"
+              @click.stop="routeTo('menu')"
               color="darkText"
               tile
               class="font-weight-bold"
               dark
-              >Order now</v-btn
-            >
+              >Order now
+            </v-btn>
           </v-layout>
         </v-flex>
       </v-layout>
@@ -114,7 +120,8 @@ export default class Nav extends AppComponent {
   navDropItems: { title: string; route: string }[] = [
     { title: 'Menu', route: 'menu' },
     { title: 'About us', route: 'about' },
-    { title: 'Contact', route: 'contact' }
+    { title: 'Contact', route: 'contact' },
+    { title: 'Order', route: 'menu' }
   ]
 
   get showNavDrawer() {
@@ -137,5 +144,10 @@ export default class Nav extends AppComponent {
 
 .nav-drawer-inner {
   min-height: 100%;
+}
+
+.nudge-right {
+  position: relative;
+  left: 30px;
 }
 </style>

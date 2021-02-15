@@ -1,7 +1,7 @@
 <template>
   <div id="logo">
     <v-layout class="logo-main" align-baseline justify-center>
-      <v-icon color="darkText" class="mr-3">fas fa-coffee</v-icon>
+      <v-icon color="accent" class="mr-3">fas fa-coffee</v-icon>
       <p
         class="mb-0 darkText--text font-weight-bold"
         :style="style"
