@@ -58,5 +58,10 @@ export default class PictureGrid extends Vue {}
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  &:hover {
+    transition: transform 0.3s linear;
+    transform: scale(1.1);
+  }
 }
 </style>
