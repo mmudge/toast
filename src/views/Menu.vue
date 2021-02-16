@@ -3,38 +3,59 @@
     <v-layout>
       <v-flex class="pr-16">
         <h1 class="text-h3 font-weight-regular">Drinks</h1>
-        <h2 class="pt-16 accent--text text-h4">Hot</h2>
-        <template v-for="item in hotDrinkItems.items">
-          <v-layout justify-space-between pt-5 :key="item.name">
-            <h3 class="text-h5">{{ item.name }}</h3>
-            <h3 class="text-h5">{{ item.price }}</h3>
-          </v-layout>
-        </template>
-        <h2 class="pt-16 accent--text text-h4">Cold</h2>
-        <template v-for="item in coldDrinkItems.items">
-          <v-layout justify-space-between pt-5 :key="item.name">
-            <h3 class="text-h5">{{ item.name }}</h3>
-            <h3 class="text-h5">{{ item.price }}</h3>
-          </v-layout>
-        </template>
+
+        <h2 class="pt-16 pb-2 text-h4 bottom-border">Hot</h2>
+        <MenuItem
+          class="pt-5"
+          v-for="item in hotDrinkItems.items"
+          :item="item"
+          :key="item.name"
+        />
+
+        <h2 class="pt-16 pb-2 text-h4 bottom-border">Cold</h2>
+
+        <MenuItem
+          class="pt-5"
+          v-for="item in coldDrinkItems.items"
+          :item="item"
+          :key="item.name"
+        />
       </v-flex>
       <v-flex class="pl-16">
         <h1 class="text-h3 font-weight-regular">Food</h1>
-        <h2 class="pt-16 accent--text text-h4">Breakfast</h2>
-        <template v-for="item in breakfastItems.items">
-          <v-layout justify-space-between pt-5 :key="item.name">
-            <h3 class="text-h5">{{ item.name }}</h3>
-            <h3 class="text-h5">{{ item.price }}</h3>
-          </v-layout>
-        </template>
+        <v-layout
+          class="pt-16 pb-2 bottom-border"
+          justify-space-between
+          align-baseline
+        >
+          <h2 class="text-h4">Breakfast</h2>
+          <h2 class="text-subtitle-2 mediumGray--text">6:00 - 11:00</h2>
+        </v-layout>
 
-        <h2 class="pt-16 accent--text text-h4">Lunch</h2>
-        <template v-for="item in lunchItems.items">
-          <v-layout justify-space-between pt-5 :key="item.name">
-            <h3 class="text-h5">{{ item.name }}</h3>
-            <h3 class="text-h5">{{ item.price }}</h3>
-          </v-layout>
-        </template>
+        <MenuItem
+          class="pt-5"
+          v-for="item in breakfastItems.items"
+          :item="item"
+          :key="item.name"
+        />
+
+        <v-layout
+          class="pt-16 pb-2 bottom-border"
+          justify-space-between
+          align-baseline
+        >
+          <h2 class="text-h4">Lunch</h2>
+          <h2 class="text-subtitle-2 mediumGray--text font-weight-bold">
+            11:00 - 3:00
+          </h2>
+        </v-layout>
+
+        <MenuItem
+          class="pt-5"
+          v-for="item in lunchItems.items"
+          :item="item"
+          :key="item.name"
+        />
       </v-flex>
     </v-layout>
   </div>
@@ -43,8 +64,13 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
+import MenuItem from '@/components/MenuItem.vue'
 
-@Component
+@Component({
+  components: {
+    MenuItem
+  }
+})
 export default class Menu extends AppComponent {
   get hotDrinkItems() {
     return this.$store.getters.menuItems.find(
@@ -72,4 +98,8 @@ export default class Menu extends AppComponent {
 }
 </script>
 
-<style scoped></style>
+<style lang="css" scoped>
+.bottom-border {
+  border-bottom: 2px solid #f6ae2d;
+}
+</style>
