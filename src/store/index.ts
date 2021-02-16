@@ -106,7 +106,7 @@ export default new Vuex.Store({
             text: 'Toast of the day, house made chili with cheese'
           },
           {
-            name: 'Chicken Avocado Sandwhich',
+            name: 'Chicken Avo Sandwich',
             price: '14',
             text: 'Chicken, avocado, pesto'
           },

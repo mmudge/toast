@@ -42,9 +42,7 @@ export default class Logo extends AppComponent {
 
 <style>
 #logo {
-  /* font-family: 'DM Serif Display', serif; */
   text-align: center;
-  margin: 0 auto;
 }
 
 .logo-main {

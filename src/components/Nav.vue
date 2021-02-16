@@ -1,14 +1,18 @@
 <template>
   <div>
     <template v-if="smAndDown">
-      <v-btn
-        color="white2"
-        x-large
-        class="mobile-hamburger"
-        @click.stop="showNavDrawer = !showNavDrawer"
-      >
-        <v-icon color="darkText">fas fa-bars</v-icon>
-      </v-btn>
+      <v-layout justify-space-between align-center class="px-5 pt-5">
+        <v-btn
+          color="accent"
+          dark
+          x-large
+          class="mobile-hamburger"
+          @click.stop="showNavDrawer = !showNavDrawer"
+        >
+          <v-icon>fas fa-bars</v-icon>
+        </v-btn>
+        <Logo :size="'md'" />
+      </v-layout>
 
       <v-navigation-drawer
         v-model="showNavDrawer"
@@ -135,12 +139,19 @@ export default class Nav extends AppComponent {
 </script>
 
 <style lang="css" scoped>
-.mobile-hamburger {
+/* .mobile-hamburger {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 1;
 }
+
+.mobile-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+} */
 
 .nav-drawer-inner {
   min-height: 100%;

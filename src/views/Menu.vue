@@ -1,39 +1,52 @@
 <template>
-  <div class="medium-container py-16">
-    <v-layout>
-      <v-flex class="pr-16">
-        <h1 class="text-h3 font-weight-regular">Drinks</h1>
+  <div
+    class="medium-container py-16"
+    :class="`${mdAndUp ? 'medium-container py-16' : 'pt-8 pb-16'}`"
+  >
+    <h1
+      :class="
+        `${mdAndUp ? 'text-h2' : 'text-h4'} text-center font-weight-regular`
+      "
+    >
+      Menu
+    </h1>
+    <p class="text-center text-body-2 pt-2 mediumGray--text">
+      Organic and always locally sourced
+    </p>
+    <v-layout :class="`${mdAndUp ? 'pt-16' : 'pt-8'}`" wrap>
+      <v-flex :class="`${mdAndUp ? 'pr-16' : 'px-5'}`">
+        <h2 class="text-h6 font-weight-bold accent--text">Drinks</h2>
 
-        <h2 class="pt-16 pb-2 text-h4 bottom-border">Hot</h2>
+        <h3 class="pt-4 pb-2 text-h4 bottom-border">Hot</h3>
         <MenuItem
-          class="pt-5"
+          class="pt-4"
           v-for="item in hotDrinkItems.items"
           :item="item"
           :key="item.name"
         />
 
-        <h2 class="pt-16 pb-2 text-h4 bottom-border">Cold</h2>
+        <h3 class="pt-16 pb-2 text-h4 bottom-border">Cold</h3>
 
         <MenuItem
-          class="pt-5"
+          class="pt-4"
           v-for="item in coldDrinkItems.items"
           :item="item"
           :key="item.name"
         />
       </v-flex>
-      <v-flex class="pl-16">
-        <h1 class="text-h3 font-weight-regular">Food</h1>
+      <v-flex :class="`${mdAndUp ? 'pl-16' : 'px-5 pt-16'}`">
+        <h2 class="text-h6 font-weight-bold accent--text">Food</h2>
         <v-layout
-          class="pt-16 pb-2 bottom-border"
+          class="pt-4 pb-2 bottom-border"
           justify-space-between
           align-baseline
         >
-          <h2 class="text-h4">Breakfast</h2>
-          <h2 class="text-subtitle-2 mediumGray--text">6:00 - 11:00</h2>
+          <h3 class="text-h4">Breakfast</h3>
+          <h3 class="text-subtitle-2 mediumGray--text">6:00 - 11:00</h3>
         </v-layout>
 
         <MenuItem
-          class="pt-5"
+          class="pt-4"
           v-for="item in breakfastItems.items"
           :item="item"
           :key="item.name"
@@ -44,14 +57,14 @@
           justify-space-between
           align-baseline
         >
-          <h2 class="text-h4">Lunch</h2>
-          <h2 class="text-subtitle-2 mediumGray--text font-weight-bold">
+          <h3 class="text-h4">Lunch</h3>
+          <h3 class="text-subtitle-2 mediumGray--text font-weight-bold">
             11:00 - 3:00
-          </h2>
+          </h3>
         </v-layout>
 
         <MenuItem
-          class="pt-5"
+          class="pt-4"
           v-for="item in lunchItems.items"
           :item="item"
           :key="item.name"
@@ -65,10 +78,12 @@
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import MenuItem from '@/components/MenuItem.vue'
+import Logo from '@/components/Logo.vue'
 
 @Component({
   components: {
-    MenuItem
+    MenuItem,
+    Logo
   }
 })
 export default class Menu extends AppComponent {

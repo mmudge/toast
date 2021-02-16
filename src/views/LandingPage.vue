@@ -3,7 +3,7 @@
     <v-layout
       :class="
         `${
-          mdAndUp ? 'medium-container' : 'text-center px-5 py-16'
+          mdAndUp ? 'medium-container' : 'text-center px-5 pt-8 pb-16'
         } landing-content align-center`
       "
     >
@@ -11,7 +11,6 @@
         <PictureGrid style="height: 550px; width: 550px;" />
       </v-flex>
       <v-flex :class="`${smAndDown ? '' : 'pl-16'}`">
-        <Logo v-if="smAndDown" :size="'md'" class="mt-12" />
         <div>
           <h1 :class="`${smAndDown ? 'mt-16' : ''} text-h3 font-weight-medium`">
             Need coffee? We've got your back!
