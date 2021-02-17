@@ -5,19 +5,21 @@
   >
     <h1
       :class="
-        `${mdAndUp ? 'text-h2' : 'text-h4'} text-center font-weight-regular`
+        `${
+          mdAndUp ? 'text-h2' : 'text-h4'
+        } text-center font-weight-regular serif-font`
       "
     >
       Menu
     </h1>
-    <p class="text-center text-body-2 pt-2 mediumGray--text">
-      Organic and always locally sourced
+    <p class="text-center text-h6 pt-2 mediumGray--text">
+      Organic - Fresh - Local Sourced
     </p>
-    <v-layout :class="`${mdAndUp ? 'pt-16' : 'pt-8'}`" wrap>
+    <v-layout :class="`${mdAndUp ? 'pt-12' : 'pt-8'}`" wrap>
       <v-flex :class="`${mdAndUp ? 'pr-16' : 'px-5'}`">
         <h2 class="text-h6 font-weight-bold accent--text">Drinks</h2>
 
-        <h3 class="pt-4 pb-2 text-h4 bottom-border">Hot</h3>
+        <h3 class="pt-4 pb-1 text-h4 bottom-border serif-font">Hot</h3>
         <MenuItem
           class="pt-4"
           v-for="item in hotDrinkItems.items"
@@ -25,7 +27,7 @@
           :key="item.name"
         />
 
-        <h3 class="pt-16 pb-2 text-h4 bottom-border">Cold</h3>
+        <h3 class="pt-16 pb-1 text-h4 bottom-border serif-font">Cold</h3>
 
         <MenuItem
           class="pt-4"
@@ -37,12 +39,14 @@
       <v-flex :class="`${mdAndUp ? 'pl-16' : 'px-5 pt-16'}`">
         <h2 class="text-h6 font-weight-bold accent--text">Food</h2>
         <v-layout
-          class="pt-4 pb-2 bottom-border"
+          class="pt-4 pb-1 bottom-border"
           justify-space-between
           align-baseline
         >
-          <h3 class="text-h4">Breakfast</h3>
-          <h3 class="text-subtitle-2 mediumGray--text">6:00 - 11:00</h3>
+          <h3 class="text-h4 serif-font">Breakfast</h3>
+          <h3 class="text-subtitle-2 mediumGray--text serif-font">
+            6:00 - 11:00
+          </h3>
         </v-layout>
 
         <MenuItem
@@ -53,12 +57,12 @@
         />
 
         <v-layout
-          class="pt-16 pb-2 bottom-border"
+          class="pt-16 pb-1 bottom-border"
           justify-space-between
           align-baseline
         >
-          <h3 class="text-h4">Lunch</h3>
-          <h3 class="text-subtitle-2 mediumGray--text font-weight-bold">
+          <h3 class="text-h4 serif-font">Lunch</h3>
+          <h3 class="text-subtitle-2 mediumGray--text serif-font">
             11:00 - 3:00
           </h3>
         </v-layout>
@@ -116,5 +120,10 @@ export default class Menu extends AppComponent {
 <style lang="css" scoped>
 .bottom-border {
   border-bottom: 2px solid #f6ae2d;
+}
+
+.serif-font {
+  /* font-family: 'Merriweather', serif !important; */
+  font-family: 'Bebas Neue', cursive !important;
 }
 </style>

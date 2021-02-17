@@ -3,7 +3,7 @@
     <v-layout class="logo-main" align-baseline justify-center>
       <v-icon color="accent" class="mr-3">fas fa-coffee</v-icon>
       <p
-        class="mb-0 darkText--text font-weight-bold"
+        class="mb-0 darkText--text font-weight-bold serif-font"
         :style="style"
         @click="onClicked"
       >
@@ -43,6 +43,7 @@ export default class Logo extends AppComponent {
 <style>
 #logo {
   text-align: center;
+  /* font-family: 'Bebas Neue', cursive !important; */
 }
 
 .logo-main {

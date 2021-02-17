@@ -66,6 +66,7 @@
               color="darkText"
               text
               tile
+              large
               class="font-weight-bold"
               >Menu</v-btn
             >
@@ -74,6 +75,7 @@
               color="darkText"
               text
               tile
+              large
               class="mx-1 font-weight-bold"
               >About</v-btn
             >
@@ -82,6 +84,7 @@
               color="darkText"
               text
               tile
+              large
               class="font-weight-bold"
               >Contact</v-btn
             >
@@ -97,6 +100,7 @@
               @click.stop="routeTo('menu')"
               color="darkText"
               tile
+              large
               class="font-weight-bold"
               dark
               >Order now

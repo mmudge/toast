@@ -12,11 +12,27 @@
       </v-flex>
       <v-flex :class="`${smAndDown ? '' : 'pl-16'}`">
         <div>
-          <h1 :class="`${smAndDown ? 'mt-16' : ''} text-h3 font-weight-medium`">
-            Need coffee? We've got your back!
+          <h1
+            :class="
+              `${smAndDown ? 'mt-16' : ''} text-h1 font-weight-bold serif-font`
+            "
+          >
+            Need coffee?
           </h1>
+          <h2
+            :class="
+              `${
+                smAndDown ? 'mt-16' : ''
+              } text-h3 font-weight-bold serif-font accent--text`
+            "
+          >
+            We've got your back!
+          </h2>
 
-          <p class="text-subtitle-1 mediumGray--text pt-10 pb-14">
+          <p
+            class="text-h6 font-weight-light mediumGray--text pt-8 pb-10"
+            style="line-height: 1.2;"
+          >
             We believe in coffee and food of the highest standards, organically
             grown and ethically sourced. We source our beans from both local
             farmers and free trade partners abroad.
@@ -76,5 +92,10 @@ export default class LandingPage extends AppComponent {}
 
 .left-content {
   height: 100%;
+}
+
+.serif-font {
+  /* font-family: 'Merriweather', serif !important; */
+  font-family: 'Bebas Neue', cursive !important;
 }
 </style>

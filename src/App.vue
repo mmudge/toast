@@ -22,15 +22,32 @@ import Footer from '@/components/Footer.vue'
 export default class App extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 #app-main {
   background-color: #fafafa;
-  font-family: 'Oxygen', sans-serif;
-  color: #011627;
+}
+
+.serif-font {
+  font-family: 'Bebas Neue', cursive;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #011627;
+}
+
+.v-application {
+  font-family: 'PT Sans Narrow', sans-serif !important;
+
+  .text-subtitle-1,
+  .text-h6,
+  .text-h5,
+  .text-h4,
+  .text-body-2,
+  .text-body-1 {
+    font-family: 'PT Sans Narrow', sans-serif !important;
+  }
 }
 
 .medium-container {
