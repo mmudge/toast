@@ -71,7 +71,7 @@
               >Menu</v-btn
             >
             <v-btn
-              @click.stop="routeTo('about')"
+              @click.stop="routeTo('landingPage')"
               color="darkText"
               text
               tile
@@ -80,7 +80,7 @@
               >About</v-btn
             >
             <v-btn
-              @click.stop="routeTo('contact')"
+              @click.stop="routeTo('landingPage')"
               color="darkText"
               text
               tile
@@ -127,8 +127,8 @@ import Social from '@/components/Social.vue'
 export default class Nav extends AppComponent {
   navDropItems: { title: string; route: string }[] = [
     { title: 'Menu', route: 'menu' },
-    { title: 'About us', route: 'about' },
-    { title: 'Contact', route: 'contact' },
+    { title: 'About us', route: 'landingPage' },
+    { title: 'Contact', route: 'landingPage' },
     { title: 'Order', route: 'menu' }
   ]
 
